@@ -25,7 +25,7 @@
   .picture {
     position: absolute;
     top: 10%;
-    right: calc(-15% - 200px);
+    right: calc(-10% - 200px);
   }
 
   #desktop {
@@ -35,29 +35,35 @@
 
   #dialogs {
     position: absolute;
-    left: 5%;
-    bottom: -25%;
+    left: 10%;
+    bottom: -20%;
     height: 600px;
     z-index: 1;
   }
 
   #chat {
     position: absolute;
-    left: 20%;
+    left: 30%;
     bottom: -10%;
     height: 600px;
     z-index: 2;
   }
 
-  @media screen and (max-width: 1600px) {
+  @media screen and (max-width: 1700px) {
     .picture {
-      right: calc(-30% - 200px);
+      right: calc(-25% - 200px);
     }
   }
 
-  @media screen and (max-width: 1450px) {
+  @media screen and (max-width: 1500px) {
     .picture {
-      right: calc(-40% - 200px);
+      right: calc(-35% - 200px);
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    .picture {
+      right: calc(-45% - 200px);
     }
   }
 
