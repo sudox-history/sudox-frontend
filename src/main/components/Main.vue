@@ -15,12 +15,12 @@
   import Footer from './Footer';
   import Picture from "./Picture";
 
-  import LangPictureChatEn from '../res/img/chat_en.svg'
-  import LangPictureChatRu from '../res/img/chat_ru.svg'
-  import LangPictureDialogsEn from '../res/img/dialogs_en.svg'
-  import LangPictureDialogsRu from '../res/img/dialogs_ru.svg'
-  import LangPictureDesktopEn from '../res/img/desktop_en.svg'
-  import LangPictureDesktopRu from '../res/img/desktop_ru.svg'
+  import LangPictureChatEn from '../res/img/chat_en.png'
+  import LangPictureChatRu from '../res/img/chat_ru.png'
+  import LangPictureDialogsEn from '../res/img/dialogs_en.png'
+  import LangPictureDialogsRu from '../res/img/dialogs_ru.png'
+  import LangPictureDesktopEn from '../res/img/desktop_en.png'
+  import LangPictureDesktopRu from '../res/img/desktop_ru.png'
 
   export default {
     name: 'App',

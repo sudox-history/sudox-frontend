@@ -1,11 +1,11 @@
 <template>
   <div class="picture">
     <!--suppress HtmlUnknownTarget -->
-    <img id="chat" :src="lang['picture_chat']" alt="">
+    <img id="desktop" :src="lang['picture_desktop']" alt="">
     <!--suppress HtmlUnknownTarget -->
     <img id="dialogs" :src="lang['picture_dialogs']" alt="">
     <!--suppress HtmlUnknownTarget -->
-    <img id="desktop" :src="lang['picture_desktop']" alt="">
+    <img id="chat" :src="lang['picture_chat']" alt="">
   </div>
 </template>
 
@@ -28,11 +28,17 @@
     right: calc(-15% - 200px);
   }
 
+  #desktop {
+    height: 700px;
+    z-index: 0;
+  }
+
   #dialogs {
     position: absolute;
     left: 5%;
     bottom: -25%;
     height: 600px;
+    z-index: 1;
   }
 
   #chat {
@@ -40,10 +46,7 @@
     left: 20%;
     bottom: -10%;
     height: 600px;
-  }
-
-  #desktop {
-    height: 700px;
+    z-index: 2;
   }
 
   @media screen and (max-width: 1600px) {
@@ -54,7 +57,7 @@
 
   @media screen and (max-width: 1450px) {
     .picture {
-      right: calc(-50% - 200px);
+      right: calc(-40% - 200px);
     }
   }
 
