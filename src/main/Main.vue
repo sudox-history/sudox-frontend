@@ -31,7 +31,7 @@
         langs: {
           en: {
             main: {
-              lang: 'ут',
+              lang: 'en',
               header_contacts: 'Contacts',
               header_beta: 'Beta',
               header_lang: 'RUS',

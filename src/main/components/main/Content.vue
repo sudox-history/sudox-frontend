@@ -41,7 +41,6 @@
     color: #232323;
     font-size: 55px;
     font-weight: 600;
-
     white-space: pre;
   }
 
@@ -59,20 +58,21 @@
   }
 
   .button {
-    height: 60px;
     margin-top: 40px;
 
     display: flex;
     align-items: center;
-    padding: 0 80px 0 80px;
+    padding: 18px 80px 18px 80px;
     border-radius: 5px;
 
     background: #00bfa5;
-    cursor: pointer;
 
     color: white;
     font-size: 20px;
     font-weight: 600;
+
+    cursor: pointer;
+    user-select: none;
   }
 
   @media screen and (max-width: 1300px) {
@@ -96,7 +96,7 @@
     }
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     .slogan {
       font-size: 35px;
     }
@@ -106,9 +106,7 @@
     }
 
     .button {
-      height: 56px;
-      padding: 0 60px 0 60px;
-
+      padding: 13px 40px 13px 40px;
       font-size: 18px;
     }
   }

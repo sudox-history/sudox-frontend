@@ -39,6 +39,7 @@
     font-weight: 500;
 
     cursor: pointer;
+    user-select: none;
   }
 
   .item-margin {
