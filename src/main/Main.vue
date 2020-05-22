@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <Header :lang="langs[lang]"/>
+    <Header :lang="langs[lang].main"/>
     <div class="spacer"></div>
-    <Content :lang="langs[lang]"/>
+    <Content :lang="langs[lang].main"/>
     <div class="spacer"></div>
     <Footer/>
-    <Pictures :lang="langs[lang]"/>
+    <Pictures :lang="langs[lang].main"/>
   </div>
 </template>
 
@@ -30,8 +30,8 @@
         lang: '',
         langs: {
           en: {
-            lang: 'en',
             main: {
+              lang: 'ут',
               header_contacts: 'Contacts',
               header_beta: 'Beta',
               header_lang: 'RUS',
@@ -48,8 +48,8 @@
             }
           },
           ru: {
-            lang: 'ru',
             main: {
+              lang: 'ru',
               header_contacts: 'Контакты',
               header_beta: 'Бета',
               header_lang: 'ENG',

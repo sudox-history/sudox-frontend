@@ -1,12 +1,12 @@
 <template>
   <div class="content">
     <div class="slogan">
-      <div>{{lang['main']['content_slogan_first']}}</div>
-      <div>{{lang['main']['content_slogan_second']}}</div>
-      <PrintingString class="slogan-words" v-bind:words="lang['main']['content_slogan_words']"/>
+      <div>{{lang['content_slogan_first']}}</div>
+      <div>{{lang['content_slogan_second']}}</div>
+      <PrintingString class="slogan-words" v-bind:words="lang['content_slogan_words']"/>
     </div>
-    <div class="hint">{{lang['main']['content_hint']}}</div>
-    <div class="button">{{lang['main']['content_button']}}</div>
+    <div class="hint">{{lang['content_hint']}}</div>
+    <div class="button">{{lang['content_button']}}</div>
   </div>
 </template>
 

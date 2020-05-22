@@ -1,11 +1,11 @@
 <template>
   <div class="pictures">
     <!--suppress HtmlUnknownTarget -->
-    <img id="desktop" :src="lang['main']['pictures_desktop']" alt="">
+    <img id="desktop" :src="lang['pictures_desktop']" alt="">
     <!--suppress HtmlUnknownTarget -->
-    <img id="dialogs" :src="lang['main']['pictures_dialogs']" alt="">
+    <img id="dialogs" :src="lang['pictures_dialogs']" alt="">
     <!--suppress HtmlUnknownTarget -->
-    <img id="chat" :src="lang['main']['pictures_chat']" alt="">
+    <img id="chat" :src="lang['pictures_chat']" alt="">
   </div>
 </template>
 

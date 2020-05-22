@@ -1,9 +1,9 @@
 <template>
   <div class="header">
-    <div class="item">{{lang['main']['header_contacts']}}</div>
-    <div class="item item-margin">{{lang['main']['header_beta']}}</div>
+    <div class="item">{{lang['header_contacts']}}</div>
+    <div class="item item-margin">{{lang['header_beta']}}</div>
     <div class="item spacer"></div>
-    <div @click="changeLang" class="item">{{lang['main']['header_lang']}}</div>
+    <div @click="changeLang" class="item">{{lang['header_lang']}}</div>
   </div>
 </template>
 
