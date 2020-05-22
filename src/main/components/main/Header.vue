@@ -1,9 +1,9 @@
 <template>
   <div class="header">
-    <div class="item">{{lang['header_contacts']}}</div>
-    <div class="item">{{lang['header_beta']}}</div>
+    <div class="item">{{lang['main']['header_contacts']}}</div>
+    <div class="item item-margin">{{lang['main']['header_beta']}}</div>
     <div class="item spacer"></div>
-    <div @click="changeLang" class="item">{{lang['header_lang']}}</div>
+    <div @click="changeLang" class="item">{{lang['main']['header_lang']}}</div>
   </div>
 </template>
 
@@ -30,17 +30,25 @@
   .header {
     display: flex;
     align-items: center;
-    padding: 60px 0 60px 0;
+    padding: 5vh 0 5vh 0;
   }
 
   .item {
-    margin-right: 50px;
-
     color: #424242;
     font-size: 20px;
     font-weight: 500;
 
     cursor: pointer;
+  }
+
+  .item-margin {
+    margin-left: 50px;
+  }
+
+  @media screen and (max-width: 500px) {
+    .item {
+      font-size: 18px;
+    }
   }
 
 </style>

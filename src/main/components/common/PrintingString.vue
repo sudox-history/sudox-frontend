@@ -1,7 +1,7 @@
 <template>
   <div class="printing-string">
     <div>&#8203;{{word}}</div>
-    <div class="cursor" v-show="cursorSeen"></div>
+    <div class="cursor" v-bind:class="{hide: cursorSeen}"></div>
   </div>
 </template>
 
@@ -94,10 +94,9 @@
 
   .printing-string {
     display: flex;
-    align-items: center;
     flex-direction: row;
-
-    white-space: pre;
+    align-items: center;
+    justify-content: center;
   }
 
   .cursor {
@@ -105,7 +104,6 @@
 
     align-self: stretch;
     margin-left: 2px;
-    padding: 5% 0 5% 0;
 
     background: black;
   }

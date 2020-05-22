@@ -1,17 +1,17 @@
 <template>
-  <div class="picture">
+  <div class="pictures">
     <!--suppress HtmlUnknownTarget -->
-    <img id="desktop" :src="lang['picture_desktop']" alt="">
+    <img id="desktop" :src="lang['main']['pictures_desktop']" alt="">
     <!--suppress HtmlUnknownTarget -->
-    <img id="dialogs" :src="lang['picture_dialogs']" alt="">
+    <img id="dialogs" :src="lang['main']['pictures_dialogs']" alt="">
     <!--suppress HtmlUnknownTarget -->
-    <img id="chat" :src="lang['picture_chat']" alt="">
+    <img id="chat" :src="lang['main']['pictures_chat']" alt="">
   </div>
 </template>
 
 <script>
   export default {
-    name: "Picture",
+    name: "Pictures",
     props: {
       lang: {
         type: Object,
@@ -22,53 +22,53 @@
 </script>
 
 <style scoped>
-  .picture {
+  .pictures {
     position: absolute;
     top: 10%;
     right: calc(-10% - 200px);
   }
 
   #desktop {
-    height: 700px;
     z-index: 0;
+    height: 700px;
   }
 
   #dialogs {
     position: absolute;
+    z-index: 1;
     left: 10%;
     bottom: -20%;
     height: 600px;
-    z-index: 1;
   }
 
   #chat {
     position: absolute;
+    z-index: 2;
     left: 30%;
     bottom: -10%;
     height: 600px;
-    z-index: 2;
   }
 
   @media screen and (max-width: 1700px) {
-    .picture {
+    .pictures {
       right: calc(-25% - 200px);
     }
   }
 
   @media screen and (max-width: 1500px) {
-    .picture {
+    .pictures {
       right: calc(-35% - 200px);
     }
   }
 
   @media screen and (max-width: 1400px) {
-    .picture {
+    .pictures {
       right: calc(-45% - 200px);
     }
   }
 
-  @media screen and (max-width: 1260px) {
-    .picture {
+  @media screen and (max-width: 1300px) {
+    .pictures {
       display: none;
     }
   }
