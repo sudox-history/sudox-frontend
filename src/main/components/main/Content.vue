@@ -107,7 +107,7 @@
 
     .button {
       padding: 13px 40px 13px 40px;
-      font-size: 18px;
+      font-size: 16px;
     }
   }
 
