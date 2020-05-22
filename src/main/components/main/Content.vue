@@ -106,7 +106,9 @@
     }
 
     .button {
+      height: 56px;
       padding: 0 60px 0 60px;
+
       font-size: 18px;
     }
   }
