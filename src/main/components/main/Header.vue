@@ -46,7 +46,7 @@
     margin-left: 50px;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     .item {
       font-size: 18px;
     }

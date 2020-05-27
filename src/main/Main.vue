@@ -15,12 +15,12 @@
   import Content from './components/main/Content';
   import Pictures from "./components/main/Pictures";
 
-  import DesktopPictureEn from './res/img/desktop_en.png'
-  import DesktopPictureRu from './res/img/desktop_ru.png'
-  import DialogsPictureEn from './res/img/dialogs_en.png'
-  import DialogsPictureRu from './res/img/dialogs_ru.png'
-  import ChatPictureEn from './res/img/chat_en.png'
-  import ChatPictureRu from './res/img/chat_ru.png'
+  import DesktopPictureEn from './assets/img/desktop_en.png'
+  import DesktopPictureRu from './assets/img/desktop_ru.png'
+  import DialogsPictureEn from './assets/img/dialogs_en.png'
+  import DialogsPictureRu from './assets/img/dialogs_ru.png'
+  import ChatPictureEn from './assets/img/chat_en.png'
+  import ChatPictureRu from './assets/img/chat_ru.png'
 
   export default {
     name: 'App',
@@ -88,7 +88,7 @@
 <style>
   body {
     margin: 0;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   #app {

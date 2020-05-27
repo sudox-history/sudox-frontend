@@ -1,8 +1,8 @@
 <template>
   <div class="footer">
-    <img id="vk" class="item" src="../../res/icons/vk.svg" alt="">
-    <img id="twitter" class="item item-margin" src="../../res/icons/twitter.svg" alt="">
-    <img id="facebook" class="item item-margin" src="../../res/icons/facebook.svg" alt="">
+    <img id="vk" class="item" src="../../assets/icons/vk.svg" alt="">
+    <img id="twitter" class="item item-margin" src="../../assets/icons/twitter.svg" alt="">
+    <img id="facebook" class="item item-margin" src="../../assets/icons/facebook.svg" alt="">
   </div>
 </template>
 
@@ -43,7 +43,7 @@
     height: 27px;
   }
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     .item {
       transform: scale(0.9);
     }
