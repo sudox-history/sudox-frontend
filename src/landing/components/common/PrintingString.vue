@@ -1,17 +1,17 @@
 <template>
   <div class="printing-string">
     <div>&#8203;{{word}}</div>
-    <div class="cursor" :class="{'cursor-hidden': cursorSeen}"></div>
+    <div :class="{'cursor-hidden': cursorHidden}" class="cursor"></div>
   </div>
 </template>
 
 <script>
-  const START_TIMEOUT        = 2000;
-  const WORD_SHOW_TIMEOUT    = 2000;
-  const WORD_EMPTY_TIMEOUT   = 700;
+  const START_TIMEOUT = 2000;
+  const WORD_SHOW_TIMEOUT = 2000;
+  const WORD_EMPTY_TIMEOUT = 100;
   const LETTER_PRINT_TIMEOUT = 100;
   const LETTER_CLEAN_TIMEOUT = 60;
-  const CURSOR_INTERVAL      = 400;
+  const CURSOR_BLINK_INTERVAL = 400;
 
   export default {
     name: 'PrintingString',
@@ -25,14 +25,14 @@
     data() {
       return {
         word: '',
-        cursorSeen: true,
+        cursorHidden: false,
         cursorInterval: 0
       }
     },
 
     created() {
       this.startCursorBlink();
-      setTimeout(this.startAnimation, START_TIMEOUT, this.words)
+      setTimeout(this.startAnimation, START_TIMEOUT, this.words);
     },
 
     methods: {
@@ -70,13 +70,13 @@
 
       startCursorBlink() {
         this.cursorInterval = setInterval(() => {
-          this.cursorSeen = !this.cursorSeen;
-        }, CURSOR_INTERVAL)
+          this.cursorHidden = !this.cursorHidden;
+        }, CURSOR_BLINK_INTERVAL);
       },
 
       stopCursorBlink() {
         clearInterval(this.cursorInterval);
-        this.cursorSeen = true;
+        this.cursorHidden = false;
       },
 
       async timeout(timeout) {
@@ -100,12 +100,10 @@
   }
 
   .cursor {
-    width: 2px;
-
     align-self: stretch;
     margin-left: 2px;
-
     background: black;
+    width: 2px;
   }
 
   .cursor-hidden {

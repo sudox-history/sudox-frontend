@@ -1,9 +1,9 @@
 <template>
   <div class="header">
-    <div class="item">{{lang['header_contacts']}}</div>
-    <div class="item item-margin">{{lang['header_beta']}}</div>
+    <div class="item">{{strings.contacts}}</div>
+    <div class="item margin">{{strings.beta}}</div>
     <div class="item spacer"></div>
-    <div @click="changeLang" class="item">{{lang['header_lang']}}</div>
+    <div @click="changeLang" class="item">{{strings.language}}</div>
   </div>
 </template>
 
@@ -11,15 +11,14 @@
   export default {
     name: "Header",
     props: {
-      lang: {
+      strings: {
         type: Object,
         required: true
       }
     },
-
     methods: {
       changeLang() {
-        localStorage.setItem('lang', this.lang['lang'] === 'en' ? 'ru' : 'en');
+        localStorage.setItem('language', this.strings.languageShort);
         location.reload()
       }
     }
@@ -34,20 +33,19 @@
   }
 
   .item {
+    cursor: pointer;
     color: #424242;
     font-size: 20px;
-    font-weight: 500;
 
-    cursor: pointer;
+    font-weight: 500;
     user-select: none;
   }
 
-  .item-margin {
+  .margin {
     margin-left: 50px;
   }
 
   .spacer {
     flex: 2;
   }
-
 </style>

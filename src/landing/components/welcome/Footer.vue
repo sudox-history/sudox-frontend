@@ -1,8 +1,8 @@
 <template>
   <div class="footer">
-    <img id="vk" class="item" src="../../assets/icons/vk.svg" alt="">
-    <img id="twitter" class="item item-margin" src="../../assets/icons/twitter.svg" alt="">
-    <img id="facebook" class="item item-margin" src="../../assets/icons/facebook.svg" alt="">
+    <img alt="" class="item" id="vk" src="../../assets/icons/vk.svg">
+    <img alt="" class="item margin" id="twitter" src="../../assets/icons/twitter.svg">
+    <img alt="" class="item margin" id="facebook" src="../../assets/icons/facebook.svg">
   </div>
 </template>
 
@@ -24,7 +24,7 @@
     user-select: none;
   }
 
-  .item-margin {
+  .margin {
     margin-left: 40px;
   }
 
@@ -41,11 +41,5 @@
   #facebook {
     width: 28px;
     height: 27px;
-  }
-
-  @media screen and (max-width: 600px) {
-    .item {
-      transform: scale(0.9);
-    }
   }
 </style>
