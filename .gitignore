@@ -1,4 +1,12 @@
+# OS
 .DS_Store
+
+# IDE
 .idea
-node_modules
+
+# Yarn
+yarn.lock
+
+# Libraries, build dirs
 /dist
+node_modules
