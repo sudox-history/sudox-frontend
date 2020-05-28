@@ -1,7 +1,7 @@
 <template>
   <div class="printing-string">
     <div>&#8203;{{word}}</div>
-    <div class="cursor" v-bind:class="{hide: cursorSeen}"></div>
+    <div class="cursor" :class="{'cursor-hidden': cursorSeen}"></div>
   </div>
 </template>
 
@@ -106,5 +106,9 @@
     margin-left: 2px;
 
     background: black;
+  }
+
+  .cursor-hidden {
+    display: none;
   }
 </style>

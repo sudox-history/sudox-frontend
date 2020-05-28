@@ -1,11 +1,8 @@
 <template>
   <div id="app">
     <Header :lang="langs[lang].main"/>
-    <div class="spacer"></div>
     <Content :lang="langs[lang].main"/>
-    <div class="spacer"></div>
     <Footer/>
-    <Pictures :lang="langs[lang].main"/>
   </div>
 </template>
 
@@ -37,7 +34,7 @@
               header_lang: 'RUS',
 
               content_slogan_first: 'Social media',
-              content_slogan_second: 'that build for ',
+              content_slogan_second: 'created for ',
               content_slogan_words: ['talk', 'work', 'fun', 'business', 'everyone'],
               content_hint: 'Everything you want you can do\nin one app - in Sudox',
               content_button: 'Join beta',
@@ -88,23 +85,22 @@
 <style>
   body {
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   #app {
     position: absolute;
-    width: 90%;
     height: 100%;
-    margin: 0 5% 0 5%;
+    width: 90%;
+
+    padding: 0 5% 0 5%;
+    overflow: hidden;
 
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
 
     font-family: 'Montserrat', sans-serif;
-  }
-
-  .spacer {
-    flex: 2;
   }
 
   .hide {

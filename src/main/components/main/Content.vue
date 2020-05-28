@@ -1,17 +1,23 @@
 <template>
   <div class="content">
-    <div class="slogan">
-      <div>{{lang['content_slogan_first']}}</div>
-      <div>{{lang['content_slogan_second']}}</div>
-      <PrintingString class="slogan-words" v-bind:words="lang['content_slogan_words']"/>
+    <div id="left" class="item">
+      <div class="slogan">
+        <div>{{lang['content_slogan_first']}}</div>
+        <div>{{lang['content_slogan_second']}}</div>
+        <PrintingString class="slogan-words" :words="lang['content_slogan_words']"/>
+      </div>
+      <div class="hint">{{lang['content_hint']}}</div>
+      <div class="button">{{lang['content_button']}}</div>
     </div>
-    <div class="hint">{{lang['content_hint']}}</div>
-    <div class="button">{{lang['content_button']}}</div>
+    <div id="right" class="item">
+      <Pictures :lang="lang"/>
+    </div>
   </div>
 </template>
 
 <script>
   import PrintingString from "../common/PrintingString";
+  import Pictures from "./Pictures";
 
   export default {
     name: "Slogan",
@@ -22,6 +28,7 @@
       }
     },
     components: {
+      Pictures,
       PrintingString
     }
   }
@@ -30,8 +37,21 @@
 <style scoped>
   .content {
     display: flex;
+    align-items: center;
+  }
+
+  .item {
+    min-width: 50%;
+    display: flex;
+  }
+
+  #left {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  #right {
+    align-items: center;
   }
 
   .slogan {
@@ -44,7 +64,7 @@
     white-space: pre;
   }
 
-  .slogan>div:first-child {
+  .slogan > div:first-child {
     flex-basis: 100%;
   }
 
@@ -73,42 +93,6 @@
 
     cursor: pointer;
     user-select: none;
-  }
-
-  @media screen and (max-width: 1300px) {
-    .content {
-      align-items: center;
-      text-align: center;
-    }
-
-    .slogan {
-      justify-content: center;
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-    .slogan {
-      white-space: normal;
-    }
-
-    .slogan-words {
-      flex-basis: 100%;
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    .slogan {
-      font-size: 35px;
-    }
-
-    .hint {
-      font-size: 18px;
-    }
-
-    .button {
-      padding: 13px 40px 13px 40px;
-      font-size: 16px;
-    }
   }
 
 </style>

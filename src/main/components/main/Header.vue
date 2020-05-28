@@ -46,10 +46,8 @@
     margin-left: 50px;
   }
 
-  @media screen and (max-width: 600px) {
-    .item {
-      font-size: 18px;
-    }
+  .spacer {
+    flex: 2;
   }
 
 </style>
