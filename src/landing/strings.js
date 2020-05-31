@@ -9,7 +9,7 @@ export default {
   en: {
     welcome: {
       headerContacts: 'Contacts',
-      headerBets: 'Beta',
+      headerBeta: 'Beta',
       headerLanguage: 'RUS',
       headerLanguageShort: 'ru',
 
@@ -29,20 +29,20 @@ export default {
   },
   ru: {
     welcome: {
-      contacts: 'Контакты',
-      beta: 'Бета',
-      language: 'ENG',
-      languageShort: 'en',
+      headerContacts: 'Контакты',
+      headerBeta: 'Бета',
+      headerLanguage: 'ENG',
+      headerLanguageShort: 'en',
 
-      tagFirstLine: 'Социальная сеть,',
-      tagSecondLine: 'созданная для ',
-      hint: 'Всё, что вы хотите, можно сделать\nв одном приложении - в Sudox',
-      words: ['общения', 'работы', 'веселья', 'бизнеса', 'каждого'],
-      button: 'Бета-версия',
+      contentTagFirstLine: 'Социальная сеть,',
+      contentTagSecondLine: 'созданная для ',
+      contentTagWords: ['общения', 'работы', 'веселья', 'бизнеса', 'каждого'],
+      contentHint: 'Всё, что вы хотите, можно сделать\nв одном приложении - в Sudox',
+      contentButton: 'Бета-версия',
 
-      desktopPicture: DesktopPictureRu,
-      dialogsPicture: DialogsPictureRu,
-      chatPicture: ChatPictureRu
+      contentDesktopPicture: DesktopPictureRu,
+      contentDialogsPicture: DialogsPictureRu,
+      contentChatPicture: ChatPictureRu
     }
   }
 }

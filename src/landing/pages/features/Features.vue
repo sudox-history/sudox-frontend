@@ -2,11 +2,10 @@
   <div class="features">
     <Header :strings="strings"/>
   </div>
-
 </template>
 
 <script>
-  import Header from "../features/Header"
+  import Header from "./components/Header"
 
   export default {
     name: 'Features',
@@ -23,5 +22,4 @@
 </script>
 
 <style scoped>
-
 </style>

@@ -1,11 +1,13 @@
 <template>
-  <div class="printing-string">
+  <div class="words">
     <div>&#8203;{{word}}</div>
     <div :class="{'cursor-hidden': cursorHidden}" class="cursor"></div>
   </div>
 </template>
 
 <script>
+  import timeout from "../../../utils/timeout";
+
   const START_TIMEOUT = 1000;
   const WORD_SHOW_TIMEOUT = 2000;
   const WORD_EMPTY_TIMEOUT = 100;
@@ -14,10 +16,10 @@
   const CURSOR_BLINK_INTERVAL = 400;
 
   export default {
-    name: 'PrintingString',
+    name: 'Words',
     props: {
-      words: {
-        type: Array,
+      strings: {
+        type: Object,
         required: true
       }
     },
@@ -30,19 +32,23 @@
       }
     },
 
-    created() {
-      this.startCursorBlink();
-      setTimeout(this.startAnimation, START_TIMEOUT, this.words);
+    mounted() {
+      this.startComponent();
     },
 
     methods: {
-      async startAnimation(words) {
+      async startComponent() {
+        let words = this.strings.contentTagWords;
+
+        this.startCursorBlink();
+        await timeout(START_TIMEOUT);
+
         for (let i = 0; i < words.length; i++) {
           await this.printWord(words[i]);
-          await this.timeout(WORD_SHOW_TIMEOUT);
+          await timeout(WORD_SHOW_TIMEOUT);
 
           await this.cleanWord(words[i]);
-          await this.timeout(WORD_EMPTY_TIMEOUT);
+          await timeout(WORD_EMPTY_TIMEOUT);
 
           if (i === words.length - 1) {
             i = -1;
@@ -50,12 +56,22 @@
         }
       },
 
+      startCursorBlink() {
+        this.cursorInterval = setInterval(
+          () => this.cursorHidden = !this.cursorHidden, CURSOR_BLINK_INTERVAL);
+      },
+
+      stopCursorBlink() {
+        clearInterval(this.cursorInterval);
+        this.cursorHidden = false;
+      },
+
       async printWord(word) {
         this.stopCursorBlink();
 
         for (let i = 1; i <= word.length; i++) {
           this.word = word.slice(0, i);
-          await this.timeout(LETTER_PRINT_TIMEOUT);
+          await timeout(LETTER_PRINT_TIMEOUT);
         }
 
         this.startCursorBlink();
@@ -64,25 +80,8 @@
       async cleanWord(word) {
         for (let i = 0; i < word.length; i++) {
           this.word = this.word.slice(0, -1);
-          await this.timeout(LETTER_CLEAN_TIMEOUT);
+          await timeout(LETTER_CLEAN_TIMEOUT);
         }
-      },
-
-      startCursorBlink() {
-        this.cursorInterval = setInterval(() => {
-          this.cursorHidden = !this.cursorHidden;
-        }, CURSOR_BLINK_INTERVAL);
-      },
-
-      stopCursorBlink() {
-        clearInterval(this.cursorInterval);
-        this.cursorHidden = false;
-      },
-
-      async timeout(timeout) {
-        return new Promise(resolve => {
-          setTimeout(resolve, timeout);
-        });
       }
     }
   }
@@ -92,7 +91,7 @@
   /*noinspection CssUnknownTarget*/
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-  .printing-string {
+  .words {
     display: flex;
     flex-direction: row;
     align-items: center;

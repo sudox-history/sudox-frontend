@@ -1,8 +1,8 @@
 <template>
   <div class="footer">
-    <img alt="" class="item" id="vk" src="../../assets/icons/vk.svg">
-    <img alt="" class="item margin" id="twitter" src="../../assets/icons/twitter.svg">
-    <img alt="" class="item margin" id="facebook" src="../../assets/icons/facebook.svg">
+    <img alt="" class="item" id="vk" src="../../../assets/icons/vk.svg">
+    <img alt="" class="item margin" id="twitter" src="../../../assets/icons/twitter.svg">
+    <img alt="" class="item margin" id="facebook" src="../../../assets/icons/facebook.svg">
   </div>
 </template>
 

@@ -1,18 +1,18 @@
 <template>
   <div class="info">
     <div class="tag">
-      <div>{{strings.tagFirstLine}}</div>
-      <div>{{strings.tagSecondLine}}</div>
-      <PrintingString :words="strings.words" class="words"/>
+      <div>{{strings.contentTagFirstLine}}</div>
+      <div>{{strings.contentTagSecondLine}}</div>
+      <Words :strings="strings"/>
     </div>
-    <div class="hint">{{strings.hint}}</div>
-    <div class="button">{{strings.button}}</div>
+    <div class="hint">{{strings.contentHint}}</div>
+    <div class="button">{{strings.contentButton}}</div>
   </div>
 
 </template>
 
 <script>
-  import PrintingString from "../common/PrintingString";
+  import Words from "./Words";
 
   export default {
     name: "Info",
@@ -23,7 +23,7 @@
       }
     },
     components: {
-      PrintingString
+      Words
     },
   }
 </script>

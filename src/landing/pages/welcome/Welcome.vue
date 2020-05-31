@@ -9,9 +9,9 @@
 </template>
 
 <script>
-  import Header from "./Header";
-  import Content from "./Content";
-  import Footer from "./Footer";
+  import Header from "./components/Header";
+  import Content from "./components/Content";
+  import Footer from "./components/Footer";
 
   export default {
     name: 'Welcome',
@@ -32,11 +32,10 @@
 <style scoped>
   .welcome {
     display: flex;
-    position: absolute;
+    position: relative;
     flex-direction: column;
     justify-content: space-between;
     padding: 0 5% 0 5%;
-    width: 90%;
     height: 100%;
     overflow: hidden;
   }

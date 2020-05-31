@@ -1,9 +1,9 @@
 <template>
   <div class="header">
-    <div class="item">{{strings.contacts}}</div>
-    <div class="item margin">{{strings.beta}}</div>
+    <div class="item">{{strings.headerContacts}}</div>
+    <div class="item margin">{{strings.headerBeta}}</div>
     <div class="item spacer"></div>
-    <div @click="changeLang" class="item">{{strings.language}}</div>
+    <div @click="changeLang" class="item">{{strings.headerLanguage}}</div>
   </div>
 </template>
 
@@ -18,8 +18,8 @@
     },
     methods: {
       changeLang() {
-        localStorage.setItem('language', this.strings.languageShort);
-        location.reload()
+        localStorage.setItem('language', this.strings.headerLanguageShort);
+        location.reload();
       }
     }
   }
