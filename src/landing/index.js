@@ -4,7 +4,7 @@ import App from './components/App.vue'
 Vue.config.productionTip = false;
 
 let app = new Vue({
-  el: ".app",
+  el: "#app",
   render: function (f) {
     return f(App)
   },

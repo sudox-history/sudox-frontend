@@ -1,8 +1,7 @@
 <template>
-  <div class="app">
-    <Header :strings="strings[language].welcome"/>
-    <Content :strings="strings[language].welcome"/>
-    <Footer/>
+  <div id="app">
+    <!--<Welcome style="display: none;" :strings="stringsChosen.welcome"/>-->
+    <Features :strings="stringsChosen.features"/>
   </div>
 </template>
 
@@ -13,18 +12,22 @@
   import Pictures from "./welcome/Pictures";
 
   import Strings from "../strings"
+  import Welcome from "./welcome/Welcome";
+  import Features from "./features/Features";
 
   export default {
     name: 'App',
 
     data() {
       return {
-        language: '',
-        strings: Strings
+        strings: Strings,
+        stringsChosen: null
       }
     },
 
     components: {
+      Features,
+      Welcome,
       Header,
       Content,
       Pictures,
@@ -35,7 +38,7 @@
       const DEFAULT_LANG = 'en';
 
       let language = localStorage.getItem('language');
-      this.language = language ? language : DEFAULT_LANG;
+      this.stringsChosen = this.strings[language ? language : DEFAULT_LANG];
     }
   }
 </script>
@@ -45,19 +48,10 @@
     margin: 0;
     overflow-x: hidden;
   }
+</style>
 
-  .app {
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-
-    justify-content: space-between;
-    padding: 0 5% 0 5%;
-
-    width: 90%;
-    height: 100%;
-    overflow: hidden;
-
+<style scoped>
+  #app {
     font-family: 'Montserrat', sans-serif;
   }
 </style>

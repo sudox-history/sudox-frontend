@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  const START_TIMEOUT = 2000;
+  const START_TIMEOUT = 1000;
   const WORD_SHOW_TIMEOUT = 2000;
   const WORD_EMPTY_TIMEOUT = 100;
   const LETTER_PRINT_TIMEOUT = 100;

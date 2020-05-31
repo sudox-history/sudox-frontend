@@ -8,20 +8,23 @@ import ChatPictureRu from "./assets/img/chat_ru.png";
 export default {
   en: {
     welcome: {
-      contacts: 'Contacts',
-      beta: 'Beta',
-      language: 'RUS',
-      languageShort: 'ru',
+      headerContacts: 'Contacts',
+      headerBets: 'Beta',
+      headerLanguage: 'RUS',
+      headerLanguageShort: 'ru',
 
-      tagFirstLine: 'Social media',
-      tagSecondLine: 'created for ',
-      hint: 'Everything you want you can do\nin one app - in Sudox',
-      words: ['talk', 'work', 'fun', 'business', 'everyone'],
-      button: 'Join beta',
-
-      desktopPicture: DesktopPictureEn,
-      dialogsPicture: DialogsPictureEn,
-      chatPicture: ChatPictureEn
+      contentTagFirstLine: 'Social media',
+      contentTagSecondLine: 'created for ',
+      contentTagWords: ['talk', 'work', 'fun', 'business', 'everyone'],
+      contentHint: 'Everything you want you can do\nin one app - in Sudox',
+      contentButton: 'Join beta',
+      contentDesktopPicture: DesktopPictureEn,
+      contentDialogsPicture: DialogsPictureEn,
+      contentChatPicture: ChatPictureEn
+    },
+    features: {
+      headerTag: 'Just another social network?',
+      headerHint: 'Probably, it\'s your your first thoughts\nbut look at our things'
     }
   },
   ru: {

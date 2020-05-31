@@ -55,7 +55,7 @@
 
   .hint {
     margin-top: 20px;
-    white-space: pre-line;
+    white-space: pre;
     color: #808080;
     font-size: 25px;
     font-weight: 400;
