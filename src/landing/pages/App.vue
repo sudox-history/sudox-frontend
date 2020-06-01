@@ -1,6 +1,6 @@
 <template>
   <div @wheel="onWheel" id="app">
-    <Welcome :strings="strings.welcome" ref="0" v-if="page === 0"/>
+    <Welcome :strings="strings.welcome" :cache="cache" ref="0" v-if="page === 0"/>
     <Features :strings="strings.features" ref="1" v-if="page === 1"/>
   </div>
 </template>
@@ -24,13 +24,23 @@
 
     data() {
       return {
-        language: localStorage.getItem('language'),
-        strings: Strings[this.language ? this.language : DEFAULT_LANG],
+        locale: localStorage.getItem('language'),
+        strings: Strings[this.locale ? this.locale : DEFAULT_LANG],
+
+        cache: {},
 
         page: 0,
         lastPage: 1,
         pageLocked: false
       }
+    },
+
+    created() {
+      console.log("App component created");
+    },
+
+    mounted() {
+      console.log("App component mounted");
     },
 
     methods: {

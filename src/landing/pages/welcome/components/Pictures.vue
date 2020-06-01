@@ -4,16 +4,16 @@
       <!--suppress HtmlUnknownTarget -->
       <img :src="strings.contentDesktopPicture" alt="" id="desktop" ref="desktop">
       <!--suppress HtmlUnknownTarget -->
-      <img :src="strings.contentDialogsPicture"  alt="" id="dialogs" ref="dialogs">
+      <img :src="strings.contentDialogsPicture" alt="" id="dialogs" ref="dialogs">
       <!--suppress HtmlUnknownTarget -->
-      <img :src="strings.contentChatPicture"  alt="" id="chat" ref="chat">
+      <img :src="strings.contentChatPicture" alt="" id="chat" ref="chat">
     </div>
   </div>
 </template>
 
 <script>
-  import timeout from "../../../utils/timeout";
   import gsap from "gsap";
+  import timeout from "../../../utils/timeout";
 
   const START_TIMEOUT = 300;
 
@@ -23,31 +23,70 @@
       strings: {
         type: Object,
         required: true
-      }
-    },
-    mounted() {
-      this.startComponent();
-    },
-    methods: {
-      async startComponent() {
-        await timeout(START_TIMEOUT);
-        await this.animateDesktop();
-
-        this.animateDialogs();
-        this.animateChats();
       },
 
-      animateDesktop() {
-        return Promise.all([
-          gsap.to(this.$refs.desktop,
-          {duration: 0.4, opacity: 1}),
+      cache: {
+        type: Object,
+        required: true
+      }
+    },
 
-          gsap.to(this.$refs.desktop,
-            {duration: 0.25, scale: 1})
+    created() {
+      console.log("Pictures component created");
+
+      if (!this.cache.initialized) {
+        this.cache.initialized = true;
+        this.cache.alreadyUsed = false;
+      }
+    },
+
+    mounted() {
+      console.log("Pictures component mounted");
+      this.startComponent();
+    },
+
+    methods: {
+      startComponent() {
+        console.log("Pictures cache:", this.cache);
+        if (!this.cache.alreadyUsed) {
+          this.cache.alreadyUsed = true;
+          this.startFirstTimeAnimation();
+        } else {
+          this.showPictures();
+        }
+      },
+
+      async startFirstTimeAnimation() {
+        await Promise.all([
+          timeout(START_TIMEOUT),
+          this.waitPicturesLoad()
+        ]);
+
+        await this.startDesktopPictureAnimation();
+
+        await Promise.all([
+          this.startDialogsPictureAnimation(),
+          this.startChatsPictureAnimation()
         ]);
       },
 
-      animateDialogs() {
+      async waitPicturesLoad() {
+        return new Promise(resolve => {
+          window.onload = resolve;
+        });
+      },
+
+      startDesktopPictureAnimation() {
+        return Promise.all([
+          gsap.to(this.$refs.desktop,
+            {duration: 0.3, opacity: 1}),
+
+          gsap.to(this.$refs.desktop,
+            {duration: 0.2, ease: 'back.out', scale: 1})
+        ]);
+      },
+
+      startDialogsPictureAnimation() {
         return Promise.all([
           gsap.to(this.$refs.dialogs,
             {duration: 0.2, opacity: 1}),
@@ -57,7 +96,7 @@
         ]);
       },
 
-      animateChats() {
+      startChatsPictureAnimation() {
         return Promise.all([
           gsap.to(this.$refs.chat,
             {duration: 0.2, opacity: 1}),
@@ -66,6 +105,17 @@
             {duration: 0.3, ease: 'power4.out', bottom: '-5%'})
         ]);
       },
+
+      showPictures() {
+        let refs = Object.values(this.$refs);
+        console.log(refs);
+
+        for (let i = 0; i < refs.length; i++) {
+          // noinspection JSUnresolvedVariable
+          console.log(refs[i]);
+          refs[i].style.opacity = "1";
+        }
+      }
     }
   }
 </script>
@@ -82,7 +132,7 @@
 
   #desktop {
     display: block; /* Necessary */
-    transform: scale(1.5);
+    transform: scale(0.8);
     opacity: 0;
     z-index: 0;
     height: 650px;
@@ -90,7 +140,7 @@
 
   #dialogs {
     position: absolute;
-    bottom: -35%; /* -15% */
+    bottom: -30%; /* -15% */
     left: 10%;
     opacity: 0;
     z-index: 1;
@@ -99,7 +149,7 @@
 
   #chat {
     position: absolute;
-    bottom: 15%; /* -5% */
+    bottom: 10%; /* -5% */
     left: 30%;
     opacity: 0;
     z-index: 2;

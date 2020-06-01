@@ -2,7 +2,7 @@
   <div class="welcome">
     <Header :strings="strings"/>
     <!--suppress HtmlDeprecatedTag -->
-    <Content :strings="strings"/>
+    <Content :strings="strings" :cache="cache.content"/>
     <Footer/>
   </div>
 
@@ -19,13 +19,31 @@
       strings: {
         type: Object,
         required: true
+      },
+
+      cache: {
+        type: Object,
+        required: true
       }
     },
     components: {
       Header,
       Content,
       Footer
-    }
+    },
+
+    created() {
+      console.log("Welcome component created");
+
+      if (!this.cache.initialized) {
+        this.cache.initialized = true;
+        this.cache.content = {};
+      }
+    },
+
+    mounted() {
+      console.log("Welcome component mounted");
+    },
   }
 </script>
 

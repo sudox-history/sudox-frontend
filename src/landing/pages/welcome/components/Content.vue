@@ -2,7 +2,7 @@
   <div class="content">
     <Info :strings="strings" class="item"/>
     <div class="item">
-      <Pictures :strings="strings"/>
+      <Pictures :strings="strings" :cache="cache.pictures"/>
     </div>
   </div>
 </template>
@@ -17,11 +17,28 @@
       strings: {
         type: Object,
         required: true
+      },
+      cache: {
+        type: Object,
+        required: true
       }
     },
     components: {
       Info,
       Pictures
+    },
+
+    created() {
+      console.log("Content component created");
+
+      if (!this.cache.initialized) {
+        this.cache.initialized = true;
+        this.cache.pictures = {};
+      }
+    },
+
+    mounted() {
+      console.log("Content component mounted");
     }
   }
 </script>

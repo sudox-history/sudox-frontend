@@ -37,7 +37,11 @@
     },
 
     methods: {
-      async startComponent() {
+      startComponent() {
+        this.startAnimation();
+      },
+
+      async startAnimation() {
         let words = this.strings.contentTagWords;
 
         this.startCursorBlink();
