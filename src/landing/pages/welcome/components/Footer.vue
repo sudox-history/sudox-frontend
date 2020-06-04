@@ -1,8 +1,19 @@
 <template>
   <div class="footer">
-    <img alt="" class="item" id="vk" src="../../../assets/icons/vk.svg">
-    <img alt="" class="item margin" id="twitter" src="../../../assets/icons/twitter.svg">
-    <img alt="" class="item margin" id="facebook" src="../../../assets/icons/facebook.svg">
+    <img alt=""
+         class="item"
+         id="vk"
+         src="../../../assets/icons/vk.svg">
+
+    <img alt=""
+         class="item"
+         id="twitter"
+         src="../../../assets/icons/twitter.svg">
+
+    <img alt=""
+         class="item"
+         id="facebook"
+         src="../../../assets/icons/facebook.svg">
   </div>
 </template>
 
@@ -24,21 +35,20 @@
     user-select: none;
   }
 
-  .margin {
-    margin-left: 40px;
-  }
-
   #vk {
+    margin-left: 40px;
     width: 40px;
     height: 23px;
   }
 
   #twitter {
+    margin-left: 40px;
     width: 28px;
     height: 23px;
   }
 
   #facebook {
+    margin-left: 40px;
     width: 28px;
     height: 27px;
   }

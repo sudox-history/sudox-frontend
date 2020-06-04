@@ -2,7 +2,7 @@
   <div class="welcome">
     <Header :strings="strings"/>
     <!--suppress HtmlDeprecatedTag -->
-    <Content :strings="strings" :cache="cache.content"/>
+    <Content :strings="strings" :cache="cache.welcome"/>
     <Footer/>
   </div>
 
@@ -33,17 +33,18 @@
     },
 
     created() {
-      console.log("Welcome component created");
-
-      if (!this.cache.initialized) {
-        this.cache.initialized = true;
-        this.cache.content = {};
+      if (!this.cache.welcome) {
+        this.cache.welcome = {self: {}};
       }
     },
 
-    mounted() {
-      console.log("Welcome component mounted");
+    beforeDestroy() {
+
     },
+
+    methods: {
+
+    }
   }
 </script>
 

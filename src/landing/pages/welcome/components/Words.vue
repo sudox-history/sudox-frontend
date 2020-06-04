@@ -1,7 +1,7 @@
 <template>
   <div class="words">
     <div>&#8203;{{word}}</div>
-    <div :class="{'cursor-hidden': cursorHidden}" class="cursor"></div>
+    <div :style="{opacity: style.cursor.opacity}" class="cursor"/>
   </div>
 </template>
 
@@ -27,8 +27,13 @@
     data() {
       return {
         word: '',
-        cursorHidden: false,
-        cursorInterval: 0
+        cursorInterval: 0,
+
+        style: {
+          cursor: {
+            opacity: '1'
+          }
+        },
       }
     },
 
@@ -61,13 +66,20 @@
       },
 
       startCursorBlink() {
-        this.cursorInterval = setInterval(
-          () => this.cursorHidden = !this.cursorHidden, CURSOR_BLINK_INTERVAL);
+        this.cursorInterval = setInterval(() => {
+            let cursor = this.style.cursor;
+
+            if (cursor.opacity === '0') {
+              cursor.opacity = '1';
+            } else {
+              cursor.opacity = '0';
+            }
+          }, CURSOR_BLINK_INTERVAL);
       },
 
       stopCursorBlink() {
         clearInterval(this.cursorInterval);
-        this.cursorHidden = false;
+        this.style.cursor.opacity = '1';
       },
 
       async printWord(word) {
@@ -107,9 +119,5 @@
     margin-left: 2px;
     background: black;
     width: 2px;
-  }
-
-  .cursor-hidden {
-    display: none;
   }
 </style>

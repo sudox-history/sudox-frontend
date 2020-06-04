@@ -1,9 +1,10 @@
 module.exports = {
+  publicPath: '',
   pages: {
-    main: {
+    landing: {
       entry: 'src/landing/index.js',
       template: 'src/landing/index.html',
-      filename: 'index.html'
+      filename: 'landing.html'
     }
   }
 };

@@ -1,7 +1,14 @@
 <template>
   <div @wheel="onWheel" id="app">
-    <Welcome :strings="strings.welcome" :cache="cache" ref="0" v-if="page === 0"/>
-    <Features :strings="strings.features" ref="1" v-if="page === 1"/>
+    <Welcome
+      :strings="strings.welcome"
+      :cache="cache"
+      v-if="page === 0"/>
+
+    <Features
+      :strings="strings.features"
+      :cache="cache"
+      v-if="page === 1"/>
   </div>
 </template>
 
@@ -13,7 +20,7 @@
   import gsap from "gsap";
 
   const DEFAULT_LANG = 'en';
-  const PAGE_TIMEOUT = 400;
+  const PAGE_TIMEOUT = 200;
 
   export default {
     name: 'App',
@@ -36,11 +43,7 @@
     },
 
     created() {
-      console.log("App component created");
-    },
-
-    mounted() {
-      console.log("App component mounted");
+      console.log(this.cache);
     },
 
     methods: {
@@ -50,10 +53,8 @@
           await timeout(PAGE_TIMEOUT);
 
           if (e.deltaY > 0 && this.page < this.lastPage) {
-            await gsap.to(this.$refs[this.page].$el, {duration: 0.2, opacity: 0});
             this.page += 1;
           } else if (e.deltaY < 0 && this.page > 0) {
-            await gsap.to(this.$refs[this.page].$el, {duration: 0.2, opacity: 0});
             this.page -= 1;
           }
 

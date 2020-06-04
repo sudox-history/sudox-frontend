@@ -2,7 +2,7 @@
   <div class="content">
     <Info :strings="strings" class="item"/>
     <div class="item">
-      <Pictures :strings="strings" :cache="cache.pictures"/>
+      <Pictures :cache="cache" :strings="strings"/>
     </div>
   </div>
 </template>
@@ -26,19 +26,6 @@
     components: {
       Info,
       Pictures
-    },
-
-    created() {
-      console.log("Content component created");
-
-      if (!this.cache.initialized) {
-        this.cache.initialized = true;
-        this.cache.pictures = {};
-      }
-    },
-
-    mounted() {
-      console.log("Content component mounted");
     }
   }
 </script>
@@ -52,5 +39,4 @@
   .item {
     min-width: 50%;
   }
-
 </style>

@@ -5,10 +5,10 @@
       <div>{{strings.contentTagSecondLine}}</div>
       <Words :strings="strings"/>
     </div>
+
     <div class="hint">{{strings.contentHint}}</div>
     <div class="button">{{strings.contentButton}}</div>
   </div>
-
 </template>
 
 <script>
