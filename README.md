@@ -1,19 +1,17 @@
-# sudox-frontend-landing
+# sudox-frontend
 
 ## Project setup
 ```
-yarn install
+$ git clone https://github.com/sudox-team/sudox-frontend.git
+$ yarn install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+$ yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
+$ yarn build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
