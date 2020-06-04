@@ -6,10 +6,10 @@
 </template>
 
 <script>
-  import gsap from "gsap";
-  import timeout from "../../../utils/timeout";
+  import gsap from 'gsap';
+  import timeout from '../../../utils/timeout';
 
-  const BETWEEN_OPACITY_AND_MOVEMENT_TIMEOUT = 200;
+  const BETWEEN_OPACITY_AND_MOVEMENT_TIMEOUT = 1000;
 
   export default {
     name: 'Header',
@@ -35,12 +35,12 @@
 
       animateOpacity() {
         return gsap.to(this.$refs.header,
-          {duration: 0.4, opacity: 1});
+          {duration: 0.2, opacity: 1});
       },
 
       animateScale() {
         return gsap.to(this.$refs.header,
-          {duration: 0.25, ease: 'back.in', scale: 1});
+          {duration: 0.3, ease: 'back.in', scale: 1});
       },
 
       animatePosition() {

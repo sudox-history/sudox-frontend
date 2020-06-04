@@ -12,10 +12,10 @@
 </template>
 
 <script>
-  import Words from "./Words";
+  import Words from './Words';
 
   export default {
-    name: "Info",
+    name: 'Info',
     props: {
       strings: {
         type: Object,

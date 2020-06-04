@@ -8,11 +8,11 @@
 </template>
 
 <script>
-  import Info from "./Info";
-  import Pictures from "./Pictures";
+  import Info from './Info';
+  import Pictures from './Pictures';
 
   export default {
-    name: "Slogan",
+    name: 'Content',
     props: {
       strings: {
         type: Object,

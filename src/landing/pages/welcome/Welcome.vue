@@ -1,17 +1,21 @@
 <template>
-  <div class="welcome">
+  <div :style="{opacity: style.welcome.opacity, transform: style.welcome.transform}"
+       class="welcome">
+
     <Header :strings="strings"/>
     <!--suppress HtmlDeprecatedTag -->
-    <Content :strings="strings" :cache="cache.welcome"/>
+    <Content :cache="cache" :strings="strings"/>
     <Footer/>
   </div>
 
 </template>
 
 <script>
-  import Header from "./components/Header";
-  import Content from "./components/Content";
-  import Footer from "./components/Footer";
+  import Header from './components/Header';
+  import Content from './components/Content';
+  import Footer from './components/Footer';
+
+  import gsap from 'gsap';
 
   export default {
     name: 'Welcome',
@@ -32,18 +36,59 @@
       Footer
     },
 
-    created() {
-      if (!this.cache.welcome) {
-        this.cache.welcome = {self: {}};
+    data() {
+      return {
+        style: {
+          welcome: {
+            opacity: '1',
+            transform: 'scale(1)'
+          }
+        }
       }
     },
 
-    beforeDestroy() {
+    created() {
+      if (!this.cache.self) {
+        this.cache.self = {};
+      }
+    },
 
+    mounted() {
+      this.startComponent();
     },
 
     methods: {
+      startComponent() {
+        if (this.cache.self.animate) {
+          this.startOpenAnimation();
+        } else {
+          this.cache.self.animate = true;
+        }
+      },
 
+      async startOpenAnimation() {
+        this.setupOpenAnimationStyles();
+
+        let welcome = this.style.welcome;
+        await Promise.all([
+          gsap.to(welcome, {duration: 0.2, opacity: '1'}),
+          gsap.to(welcome, {duration: 0.3, ease: 'power4.out', transform: 'scale(1)'}),
+        ]);
+      },
+
+      setupOpenAnimationStyles() {
+        let welcome = this.style.welcome;
+        welcome.opacity = '0';
+        welcome.transform = 'scale(1.5)';
+      },
+
+      async startCloseAnimation() {
+        let welcome = this.style.welcome;
+        await Promise.all([
+          gsap.to(welcome, {duration: 0.2, opacity: '0'}),
+          gsap.to(welcome, {duration: 0.3, ease: 'power4.out', transform: 'scale(1.5)'}),
+        ]);
+      }
     }
   }
 </script>
@@ -56,6 +101,5 @@
     justify-content: space-between;
     padding: 0 5% 0 5%;
     height: 100%;
-    overflow: hidden;
   }
 </style>

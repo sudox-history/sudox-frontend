@@ -6,9 +6,9 @@
 </template>
 
 <script>
-  import timeout from "../../../utils/timeout";
+  import timeout from '../../../utils/timeout';
 
-  const START_TIMEOUT = 1000;
+  const ANIMATION_TIMEOUT = 1000;
   const WORD_SHOW_TIMEOUT = 2000;
   const WORD_EMPTY_TIMEOUT = 100;
   const LETTER_PRINT_TIMEOUT = 100;
@@ -50,7 +50,7 @@
         let words = this.strings.contentTagWords;
 
         this.startCursorBlink();
-        await timeout(START_TIMEOUT);
+        await timeout(ANIMATION_TIMEOUT);
 
         for (let i = 0; i < words.length; i++) {
           await this.printWord(words[i]);
@@ -68,7 +68,6 @@
       startCursorBlink() {
         this.cursorInterval = setInterval(() => {
             let cursor = this.style.cursor;
-
             if (cursor.opacity === '0') {
               cursor.opacity = '1';
             } else {

@@ -23,13 +23,13 @@
 </template>
 
 <script>
-  import gsap from "gsap";
-  import timeout from "../../../utils/timeout";
+  import gsap from 'gsap';
+  import timeout from '../../../utils/timeout';
 
-  const START_TIMEOUT = 400;
+  const ANIMATION_TIMEOUT = 400;
 
   export default {
-    name: "Pictures",
+    name: 'Pictures',
     props: {
       strings: {
         type: Object,
@@ -76,28 +76,28 @@
     methods: {
       startComponent() {
         if (!this.cache.pictures.animated) {
-          this.startAnimation();
           this.cache.pictures.animated = true;
+          this.startOpenAnimation();
         }
       },
 
-      async startAnimation() {
-        this.setupAnimationStyles();
+      async startOpenAnimation() {
+        this.setupOpenAnimationStyles();
 
         await Promise.all([
-          timeout(START_TIMEOUT),
+          timeout(ANIMATION_TIMEOUT),
           this.waitLoad()
         ]);
 
-        await this.startDesktopAnimation();
+        await this.startDesktopOpenAnimation();
 
         await Promise.all([
-          this.startDialogsAnimation(),
-          this.startChatsAnimation()
+          this.startDialogsOpenAnimation(),
+          this.startChatsOpenAnimation()
         ]);
       },
 
-      setupAnimationStyles() {
+      setupOpenAnimationStyles() {
         let {desktop, dialogs, chat} = this.style;
 
         desktop.opacity = '0'
@@ -116,27 +116,24 @@
         });
       },
 
-      startDesktopAnimation() {
+      startDesktopOpenAnimation() {
         let desktop = this.style.desktop;
-
         return Promise.all([
           gsap.to(desktop, {duration: 0.3, opacity: 1}),
           gsap.to(desktop, {duration: 0.2, ease: 'back.out', transform: 'scale(1)'})
         ]);
       },
 
-      startDialogsAnimation() {
+      startDialogsOpenAnimation() {
         let dialogs = this.style.dialogs;
-
         return Promise.all([
           gsap.to(dialogs, {duration: 0.2, opacity: 1}),
           gsap.to(dialogs, {duration: 0.3, ease: 'power4.out', bottom: '-15%'})
         ]);
       },
 
-      startChatsAnimation() {
+      startChatsOpenAnimation() {
         let chat = this.style.chat;
-
         return Promise.all([
           gsap.to(chat, {duration: 0.2, opacity: 1}),
           gsap.to(chat, {duration: 0.3, ease: 'power4.out', bottom: '-5%'})
