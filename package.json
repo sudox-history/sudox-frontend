@@ -7,7 +7,9 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "animejs": "^3.2.0",
     "gsap": "^3.2.6",
+    "velocity-animate": "^2.0.6",
     "vue": "^2.6.11"
   },
   "devDependencies": {

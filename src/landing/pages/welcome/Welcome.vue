@@ -1,5 +1,5 @@
 <template>
-  <div :style="{opacity: style.welcome.opacity, transform: style.welcome.transform}"
+  <div ref="window" :style="{opacity: style.welcome.opacity, transform: style.welcome.transform}"
        class="welcome">
 
     <Header :strings="strings"/>
@@ -15,7 +15,10 @@
   import Content from './components/Content';
   import Footer from './components/Footer';
 
+  import anime from 'animejs';
+  import velocity from 'velocity-animate'
   import gsap from 'gsap';
+  import timeout from "../../utils/timeout";
 
   export default {
     name: 'Welcome',
@@ -83,11 +86,24 @@
       },
 
       async startCloseAnimation() {
-        let welcome = this.style.welcome;
-        await Promise.all([
-          gsap.to(welcome, {duration: 0.2, opacity: '0'}),
-          gsap.to(welcome, {duration: 0.3, ease: 'power4.out', transform: 'scale(1.5)'}),
-        ]);
+        let welcome = this.$refs.window;
+
+        // await anime({
+        //   targets: welcome,
+        //   scale: 1.5,
+        //   duration: 300,
+        //   easing: 'linear'
+        // }).finished;
+
+        console.log(velocity);
+        let items = velocity(welcome, {scale: 1.5}, {duration: 10000, easing: 'ease-out'});
+        await items[0].promise;
+        await timeout(1000);
+
+        // await Promise.all([
+        //   gsap.to(welcome, {duration: 0.2, opacity: '0'}),
+        //   gsap.to(welcome, {duration: 0.3, ease: 'power4.out', transform: 'scale(1.5)'}),
+        // ]);
       }
     }
   }
