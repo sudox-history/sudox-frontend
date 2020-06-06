@@ -18,11 +18,11 @@
   import Welcome from './welcome/Welcome';
   import Features from './features/Features';
   import Strings from '../strings';
-  import timeout from '../utils/timeout';
+  import {timeout} from '../utils';
   import gsap from "gsap";
 
   const DEFAULT_LANG = 'en';
-  const PAGE_TIMEOUT = 400;
+  const PAGE_TIMEOUT = 500;
 
   export default {
     name: 'App',

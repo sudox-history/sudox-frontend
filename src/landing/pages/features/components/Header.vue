@@ -7,7 +7,7 @@
 
 <script>
   import gsap from 'gsap';
-  import timeout from '../../../utils/timeout';
+  import {timeout} from '../../../utils';
 
   const BETWEEN_OPACITY_AND_MOVEMENT_TIMEOUT = 1000;
 

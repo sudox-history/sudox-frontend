@@ -7,13 +7,11 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "animejs": "^3.2.0",
     "gsap": "^3.2.6",
-    "velocity-animate": "^2.0.6",
     "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-service": "~4.3.0",
+    "@vue/cli-service": "^4.4.1",
     "vue-template-compiler": "^2.6.11"
   }
 }

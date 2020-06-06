@@ -24,7 +24,7 @@
 
 <script>
   import gsap from 'gsap';
-  import timeout from '../../../utils/timeout';
+  import {timeout} from '../../../utils';
 
   const ANIMATION_TIMEOUT = 400;
 
@@ -154,12 +154,14 @@
   }
 
   #desktop {
+    will-change: transform, opacity;
     display: block; /* Necessary */
     z-index: 0;
     height: 650px;
   }
 
   #dialogs {
+    will-change: bottom, opacity;
     position: absolute;
     left: 10%;
     z-index: 1;
@@ -167,6 +169,7 @@
   }
 
   #chat {
+    will-change: bottom, opacity;
     position: absolute;
     left: 30%;
     z-index: 2;

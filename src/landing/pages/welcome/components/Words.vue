@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import timeout from '../../../utils/timeout';
+  import {timeout} from '../../../utils';
 
   const ANIMATION_TIMEOUT = 1000;
   const WORD_SHOW_TIMEOUT = 2000;
