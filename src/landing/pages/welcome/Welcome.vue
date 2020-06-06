@@ -96,7 +96,6 @@
 
 <style scoped>
   .welcome {
-    will-change: transform, opacity;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
