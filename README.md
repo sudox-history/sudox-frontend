@@ -15,3 +15,6 @@ $ yarn serve
 ```
 $ yarn build
 ```
+
+## Screenshot
+![Screenshot](assets/screenshot.png)
