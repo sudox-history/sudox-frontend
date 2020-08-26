@@ -3,15 +3,16 @@
 ## Project setup
 ```
 $ git clone https://github.com/sudox-team/sudox-frontend.git
+$ cd sudox-frontend
 $ yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Compilation and hot-reloading for development
 ```
 $ yarn serve
 ```
 
-### Compiles and minifies for production
+### Compilation and code minifying for production
 ```
 $ yarn build
 ```
